@@ -1,0 +1,34 @@
+.pagination {
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.pagination__pages {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.pagination__list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination__list li {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.pagination__list .selected {
+    color: rgba(126, 188, 60, 1);
+}
+
+@media screen and (max-width: 490px) {
+    .pagination__list li {
+        padding: 0;
+    }
+}

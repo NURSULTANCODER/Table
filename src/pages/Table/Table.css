@@ -1,0 +1,68 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #E3E6EC;
+    height: 83vh;
+    margin-bottom: 20px;
+}
+
+tr, td {
+    border: 1px solid #E3E6EC;
+}
+
+td {
+    padding: 15px 11px 18px 23px;
+}
+
+td:nth-child(2), td:nth-child(3) {
+    padding: 15px 12px 14px 11px;
+}
+
+thead {
+    background-color: #474955;
+    color: #fff;
+}
+
+tr:first-child > th {
+    padding: 19px 16px;
+}
+
+.table__table-header span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.table__table-header > span::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -80%;
+    transform: translate(-50%, -50%);
+    background: url('../../assets/icons/downUp.svg') no-repeat center center;
+    width: 25px;
+    height: 25px;
+}
+
+.table__table-header:first-child > span::before {
+    top: 50%;
+    right: -50px;
+}
+
+.rotate > span::before {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+@media screen and (max-width: 525px) {
+    tr:first-child > th {
+        padding: 10px;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    td:nth-child(2), td:nth-child(3) {
+        padding: 4px;
+    }
+}
