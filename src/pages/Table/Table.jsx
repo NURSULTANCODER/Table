@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import Pagination from "../../components/UI/Pagination/Pagination";
+import { useDebounce } from '../../hooks/useDebounce'
 import {changeAscSort, changeCurrentPage, getPosts, onPropertyChange} from "../../store/actions/postsActions";
 import Search from "../../components/UI/Search/Search";
 import './Table.css';
@@ -13,10 +14,11 @@ const Table = () => {
     const isAscending = useSelector(state => state.posts.isAscending);
     const currentPage = useSelector(state => state.posts.currentPage);
     const posts = useSelector(state => state.posts.posts);
+    const debaunceText = useDebounce(searchText, 500)
 
     useEffect(() => {
-        dispatch(getPosts(currentPage, sortProperty, isAscending, searchText));
-    }, [dispatch, searchText]);
+        dispatch(getPosts(currentPage, sortProperty, isAscending, debaunceText));
+    }, [dispatch, debaunceText]);
 
     const onSortClick = (newSortProperty) => {
         setIsRotated(prevState => ({...prevState, [newSortProperty] : !prevState[newSortProperty]}));
